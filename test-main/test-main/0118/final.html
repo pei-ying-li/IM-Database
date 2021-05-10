@@ -1,0 +1,230 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="final.css">
+
+    </head>
+    <body>
+
+        <h1>Airline</h1>
+
+        <div class="content">
+
+            <form id="add-route-form">
+                <h2>Route</h2>
+                <h3>Add a Route</h3>
+                <input type="text" name="id" placeholder="route ID">
+                <input type="text" name="origin" placeholder="origin">
+                <input type="text" name="destination" placeholder="destination">
+                <button>Add Route</button>
+            </form>
+
+            <form id="search-route-form">
+                <h3>Search for a Route</h3>
+                <input type="text" name="id" placeholder="route ID">
+                <input type="text" name="origin" placeholder="origin">
+                <input type="text" name="destination" placeholder="destination">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Routes</h3>
+            <ul id="route-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-model-form">
+                <h2>Plane Model</h2>
+                <h3>Add a Plane Model</h3>
+                <input type="text" name="id" placeholder="model ID">
+                <input type="text" name="seats" placeholder="number of seats">
+                <button>Add Model</button>
+            </form>
+
+            <form id="search-model-form">
+                <h3>Search for a Plane Model</h3>
+                <input type="text" name="id" placeholder="model ID">
+                <!-- <input type="text" name="seats" placeholder="number of seats"> -->
+                <button>Search</button>
+            </form>
+
+            <h3>List of Plane Models</h3>
+            <ul id="model-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-pilot-form">
+                <h2>Pilot</h2>
+                <h3>Add a Pilot</h3>
+                <input type="text" name="id" placeholder="pilot ID">
+                <input type="text" name="name" placeholder="name">
+                <input list="browsers" placeholder="gender" name="gender">
+                <datalist id="browsers">
+                    <option value="Male"></option>
+                    <option value="Female"></option>
+                </datalist>
+                <input type="text" name="miles" placeholder="flight mileage">
+                <button>Add Pilot</button>
+            </form>
+
+            <form id="search-pilot-form">
+                <h3>Search for a Pilot</h3>
+                <input type="text" name="id" placeholder="pilot ID">
+                <input type="text" name="name" placeholder="name">
+                <input list="browsers" placeholder="gender" name="gender">
+                <datalist id="browsers">
+                    <option value="Male"></option>
+                    <option value="Female"></option>
+                </datalist>
+                <button>Search</button>
+            </form>
+
+            <h3>List of Pilots</h3>
+            <ul id="pilot-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-flight-form">
+                <h2>Scheduled Flight</h2>
+                <h3>Add a Scheduled Flight</h3>
+                <input type="text" name="flightID" placeholder="flight ID">
+                <input type="text" name="routeID" placeholder="route ID">
+                <input type="text" name="departDate" placeholder="departure date">
+                <input type="text" name="departTime" placeholder="departure time">
+                <input type="text" name="pilotID" placeholder="pilot ID">
+                <input type="text" name="planeID" placeholder="plane ID">
+                <button>Add Flight</button>
+            </form>
+
+            <form id="search-flight-form">
+                <h3>Search for a Scheduled Flight</h3>
+                <input type="text" name="flightID" placeholder="flight ID">
+                <input type="text" name="routeID" placeholder="route ID">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Scheduled Flights</h3>
+            <ul id="flight-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-customer-form">
+                <h2>Customer</h2>
+                <h3>Add a Customer</h3>
+                <input type="text" name="id" placeholder="customer ID">
+                <input type="text" name="name" placeholder="name">
+                <button>Add Customer</button>
+            </form>
+
+            <form id="search-customer-form">
+                <h3>Search for a Customer</h3>
+                <input type="text" name="id" placeholder="customer ID">
+                <input type="text" name="name" placeholder="name">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Customers</h3>
+            <ul id="customer-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-plane-form">
+                <h2>Plane</h2>
+                <h3>Add a Plane</h3>
+                <input type="text" name="id" placeholder="plane ID">
+                <input type="text" name="mID" placeholder="model ID">
+                <button>Add Plane</button>
+            </form>
+
+            <form id="search-plane-form">
+                <h3>Search for a Plane</h3>
+                <input type="text" name="id" placeholder="plane ID">
+                <input type="text" name="mID" placeholder="model ID">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Planes</h3>
+            <ul id="plane-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-order-form">
+                <h2>Order</h2>
+                <h3>Add an Order</h3>
+                <input type="text" name="id" placeholder="order ID">
+                <input type="text" name="cID" placeholder="customer ID">
+                <input type="text" name="tID" placeholder="ticket ID">
+                <button>Add Order</button>
+            </form>
+
+            <form id="search-order-form">
+                <h3>Search for an Order</h3>
+                <input type="text" name="id" placeholder="order ID">
+                <input type="text" name="cID" placeholder="customer ID">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Orders</h3>
+            <ul id="order-list"></ul>
+
+        </div>
+
+        <div class="content">
+
+            <form id="add-ticket-form">
+                <h2>Ticket</h2>
+                <h3>Add a Ticket</h3>
+                <input type="text" name="ID" placeholder="ticket ID">
+                <input type="text" name="flightID" placeholder="flight ID">
+                <button>Add Ticket</button>
+            </form>
+
+            <form id="search-ticket-form">
+                <h3>Search for a Ticket</h3>
+                <input type="text" name="ID" placeholder="ticket ID">
+                <input type="text" name="flightID" placeholder="flight ID">
+                <button>Search</button>
+            </form>
+
+            <h3>List of Tickets</h3>
+            <ul id="ticket-list"></ul>
+
+        </div>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAmRJFfNnH2HwbS6C6zTYtymExMOSFnTqo",
+                authDomain: "db-management-8206d.firebaseapp.com",
+                projectId: "db-management-8206d",
+                storageBucket: "db-management-8206d.appspot.com",
+                messagingSenderId: "899853456130",
+                appId: "1:899853456130:web:1edb19b9ae6365eec9a81b"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+        </script>
+        <script src="route.js"></script>
+        <script src="model.js"></script>
+        <script src="pilot.js"></script>
+        <script src="flight.js"></script>
+        <script src="customer.js"></script>
+        <script src="plane.js"></script>
+        <script src="order.js"></script>
+        <script src="ticket.js"></script>
+    </body>
+</html>
